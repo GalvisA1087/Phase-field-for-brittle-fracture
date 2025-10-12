@@ -1,0 +1,27 @@
+// ================================================================================
+// ================================================================================
+// Function to calculate the test force as required (dimensionless)
+
+// Two components of the test force, A global variable.
+real[int] FtE(2);
+
+func real[int] FieldToExport(mesh &Thl, real[int] &val1, real[int] &val2, real[int] &val3){
+
+	// In this function, the Fk force is evaluated. Usually the values from the data
+	// are needed. Modified as needed.
+	// If thickness is not given, remove from here too.
+
+	// Local FEspace
+	fespace Xhl(Thl, Pk);
+	Xhl sigma11l=val1;
+	Xhl sigma22l=val2;
+	Xhl sigma12l=val3;
+	
+	real[int] F(2);
+		
+	F(0) = int1d(Thl,3)( sigma12l ) * (thickness/L0);		
+	F(1) = int1d(Thl,3)( sigma22l ) * (thickness/L0);
+	
+	return F;
+
+}

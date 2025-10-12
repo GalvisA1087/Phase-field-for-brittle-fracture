@@ -1,0 +1,40 @@
+// ================================================================================
+// ================================================================================
+// ================================================================================
+// MESH
+// ================================================================================
+// This variables are specifically defined for the mesh, It is good for them to be
+// global. Potentially they are needed to compute the forces Fk. The mesh is 
+// already defined in the dimensionless system
+int N = 10; // number of segments in the initial mesh
+real l1 = 0.5; // half of the dimensionless length 
+real lc=3.0/1300.0; // crack opening prescribed
+real rad0 = 10.0e-3/L0; // dimensionless radius big hole 
+real rad = 5.0e-3/L0; // dimensionless radius small holes
+// Dimensionless coordinates of the small holes
+real xc = -(5.0/26.0); // x-coordinate 
+real yc1 = (8.0/13.0); // y-coordinate 
+real yc2 = -(8.0/13.0); // y-coordinate 
+// Boundaries
+border a1(dum=-l1,l1)						{x=dum;			y=-(12.0/13.0);		label=2;}
+border a2(dum=-(12.0/13.0),(12.0/13.0))		{x=l1;			y=dum;			 	label=2;}
+border a3(dum=l1,-l1)						{x=dum;			y=(12.0/13.0);		label=2;}
+border a4(dum=(12.0/13.0),(1.0/13.0)+lc)	{x=-l1;			y=dum;			 	label=2;}
+border a8(dum=(1.0/13.0)-lc,-(12.0/13.0))	{x=-l1;			y=dum;				label=2;}
+// Crack
+border a5(dum=-l1,-(9.0/26.0))				{x=dum;			y=(1.0/13.0)+lc; 	label=2;}
+border a6(dum=(1.0/13.0)+lc,(1.0/13.0)-lc)	{x=-(9.0/26.0);	y=dum;			 	label=2;}
+border a7(dum=-(9.0/26.0),-l1)				{x=dum;	 		y=(1.0/13.0)-lc; 	label=2;}
+// Holes
+
+// big hole
+border C0(dum=0., 2.*pi)	{x=(4.0/65.0)+rad0*cos(dum); y=-(9.0/65.0)+rad0*sin(dum); label=2;}
+// small hole
+border C1(dum=0, 2*pi)	{x=xc+rad*cos(dum); y=yc1+rad*sin(dum); label=3;}
+border C2(dum=0, 2*pi)	{x=xc+rad*cos(dum); y=yc2+rad*sin(dum); label=1;}
+
+// Building the mesh
+mesh Th = buildmesh( a1(N)+a2(N)+a3(N)+a4(N)+a5(N)+a6(N)+a7(N)+a8(N)+C0(-2*60)+C1(-2*30)+C2(-2*30) );
+
+
+

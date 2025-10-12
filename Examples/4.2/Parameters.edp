@@ -1,0 +1,47 @@
+// ================================================================================
+// ================================================================================
+// ================================================================================
+// PARAMETERS
+// ================================================================================
+real Nsteps = 2000; // Number of simulation steps
+
+real l = 0.01e-3; // characteristic length ("crack width")
+real lambda = 121.15e9;  // First Lame parameter in Pa  
+real mu = 80.76e9; // shear modulus in Pa
+real Gc = 2700; // Energy released rate in J/m, or N/m
+real curlU = 0.01e-3; // Typical displacement in m
+real L0 = 1e-3; // Typical length in m
+real du=0.001; // Dimensionless load step
+
+// Numerical parameter
+real kappa = 0.00005; 
+
+// Tolerance for the iterative process and Newton Raphson
+real Tol = 1e-5; 
+
+// Maximum edge size of the adapt mesh
+real lmax = 0.1; 
+
+// Maximum number of vertices generated in the adaptmesh process
+int mNv = 100000; 
+
+// Isometric mesh 0 (N), and 1 (Y)
+int tm=0;
+
+// If problem is quasi-static make rho=tau=1
+real rho=1; // Density
+real tau=1; // Typical time scale
+
+// Type of element
+func Pk = P2;
+
+// error of the adaptmesh process
+real error=0.035; 
+
+// thickness if informed in m, otherwise remove it from the 
+// test for calculation in FieldToExport.edp
+real thickness = 1e-3; 
+
+// Saving data - Need to create these folders previously
+string vtuFiles="Results_sPF/Paraview/sPF_";
+string datFile="Data/sPF_0.001.dat";

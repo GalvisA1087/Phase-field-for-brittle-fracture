@@ -1,0 +1,43 @@
+// ================================================================================
+// ================================================================================
+// ================================================================================
+// PARAMETERS
+// ================================================================================
+real Nsteps = 1000; // Number of simulation steps
+real l = 0.25e-3; // characteristic length ("crack width")
+real lambda = 8.88e9;  // First Lame parameter in Pa  
+real mu = 13.33e9; // shear modulus in Pa
+real Gc = 3; // Energy released rate in J/m, or N/m
+real curlU = 1e-3; // Typical displacement in m
+real L0 = 100e-3; // Typical length in m
+real dt=0.00125; // Dimensionless time step
+real rho = 2450; // density in kg/m^3
+real tau = 80e-6; // time scale in s
+real t1 = 0; // x1 surface traction component
+real t2 = 1e6; // x2 surface traction component in Pa
+
+// Numerical parameter
+real kappa = 0.00005; 
+
+// Tolerance for the iterative process and Newton Raphson
+real Tol = 1e-5; 
+
+// Maximum edge size of the adapt mesh
+real lmax = 0.05; 
+
+// Maximum number of vertices generated in the adaptmesh process
+int mNv = 100000; 
+
+// error of the adaptmesh process
+real error=0.005;
+
+// Isometric mesh 0 (N), and 1 (Y)
+int tm=0; 
+
+// Type of element
+func Pk = P2;
+
+// Saving data - Need to create these folders previously
+string vtuFiles="Results_sPF/Paraview/sPF_";
+string datFile="Data/sPF.dat";
+

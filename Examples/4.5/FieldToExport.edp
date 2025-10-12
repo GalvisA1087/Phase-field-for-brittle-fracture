@@ -1,0 +1,25 @@
+// ================================================================================
+// ================================================================================
+// Function to calculate the dissipated energy as required (dimensionless)
+
+// Two components of the Field to Export (FtE).
+real[int] FtE(2);
+
+func real[int] FieldToExport(mesh &Thl, real[int] &val){
+
+	// In this function, the elastic energy Ee and dissipative energy Ed are evaluated. Usually the values from the data
+	// are needed. Modified as needed.
+
+	// Local FEspace
+	fespace Xhl(Thl, Pk);
+	Xhl dl=val;
+	
+	real[int] E(2);
+	
+	E(0) = 0.0  ;	
+		
+	E(1) = int2d(Thl)( Gc * ( (dl^2/2.0) + (beta/2.0)*( dx(dl)*dx(dl) + dy(dl)*dy(dl) ) ) ) ;
+	
+	return E;
+
+}
