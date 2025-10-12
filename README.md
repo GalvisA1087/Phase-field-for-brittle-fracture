@@ -18,10 +18,10 @@ Each example folder contains a working subset of scripts to reproduce the corres
 Phase-field-for-brittle-fracture/
 ├── CODE/ # Main simulation scripts (modular .edp files)
 ├── Examples/ # Example problems from the paper (Section 4.x)
-│ ├── 4.1/Tensile
-│ ├── 4.2/Shear
-│ ├── 4.3/L shape element
-│ ├── 4.4/Plate with holes
+│ ├── 4.1/Single edge notched tension test
+│ ├── 4.2/Single edge notched shear test
+│ ├── 4.3/L-shape panel test
+│ ├── 4.4/Notched plate with holes
 │ ├── 4.5/Dynamic crack branching
 ├── LICENSE # GNU GPL v3.0 license
 └── README.md # Project documentation (this file)
