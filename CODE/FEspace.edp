@@ -1,0 +1,22 @@
+// ================================================================================
+// ================================================================================
+// ================================================================================
+// FE-SPACE
+// ================================================================================
+// Original FEspace which is updated at every by the adaptmesh
+// also by the propagation of the physical crack for hPF
+
+fespace Vh(Th, [Pk,Pk]);
+Vh [u1, u2]=[0,0];
+Vh [v1, v2];
+Vh [u1old, u2old]=[0,0];
+Vh [u1oold, u2oold]=[0,0];
+Vh [u1ooold, u2ooold]=[0,0];
+Vh [u1dyn,u2dyn];
+
+fespace Xh(Th, Pk);
+Xh d=0, v;
+Xh H=0, Hold;
+Xh eps11, eps12, eps22;
+Xh sigma11, sigma12, sigma22;
+Xh e11, e12, e22, trepsp, En;

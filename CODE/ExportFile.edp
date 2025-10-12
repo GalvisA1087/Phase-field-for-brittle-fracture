@@ -1,0 +1,32 @@
+// ================================================================================
+// ================================================================================
+// Function to export a .dat file with specific data
+
+// Exporting a costumised .dat file with different data. Usually they are 
+// global variables for facility. This file is for illustrative purposes
+
+func real[int] ExportToFile(int i){
+
+	// prescribed displacement
+	// x1 - field to export component
+	// x2 - field to export component
+	// number of dof for the displacement system
+	// number of dof for the phase field system
+	// number of triables or elements
+	// time to solve one iterative process in a step load
+	// time to solve one full step load
+	// total time 
+	// Number of iteration to solve one step load
+	
+	// This is necessary to clean the file from previous simulations
+	if (i == 0) {
+		ofstream clearFile(datFile); 
+	}
+	
+	// Saving the current load step i
+	{ofstream Files(datFile,append);
+	{
+		Files << "  " << alpha << "  " << FtE(0) << " " << FtE(1) << " " << Vh.ndof << " " << Xh.ndof << " " << Th.nt << " " << tsolveud << " " << tsolve << " " << Totaltime << " " << Nitr << "\n";
+	};}	
+
+}

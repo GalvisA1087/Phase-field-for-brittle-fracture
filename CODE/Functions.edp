@@ -1,0 +1,39 @@
+// ================================================================================
+// ================================================================================
+// ================================================================================
+// FUNCTIONS
+// ================================================================================
+// Function to evaluate the error for the phase field d and displacements
+// within the Newton-Rapshon routine
+
+func real[int] computError(real[int] &val) {
+    
+	Vh [du1l,du2l];
+	du1l[] = val(0:Vh.ndof-1);
+	    
+    real umax1 = abs(du1l[].max);
+    real umin1 = abs(du1l[].min);
+    if (umax1 < umin1) {
+        umax1 = umin1;
+    }
+    
+    real umax2 = abs(du2l[].max);
+    real umin2 = abs(du2l[].min);
+    if (umax2 < umin2) {
+        umax2 = umin2;
+    }
+    
+    real[int] dl = val(Vh.ndof:Vh.ndof+Xh.ndof-1);
+    real dmax = abs(dl.max);
+    real dmin = abs(dl.min);
+    if (dmax < dmin) {
+        dmax = dmin;
+    }
+    
+    real[int] vmax(2);
+    vmax(0) = sqrt( umax1^2 + umax2^2 );
+    vmax(1) = dmax;
+    
+    return vmax;
+}	
+

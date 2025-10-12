@@ -1,0 +1,42 @@
+// ================================================================================
+// ================================================================================
+// ================================================================================
+// LOADING AND INCLUDING LIBRARIES
+// ================================================================================
+load "iovtk"
+load "lapack"
+// ================================================================================
+// ================================================================================
+// SOME VARIABLES
+// ================================================================================
+
+// Number of iterations to solve one load step
+int Nitr;
+real errordNR, erroruNR; 
+
+// Material properties
+real Kn = lambda + 2.0*mu/2.0; // bulk modulus
+
+// Dimensionless material properties
+mu = mu/Kn;
+lambda = lambda/Kn;
+Gc = ( (L0^2)/(Kn*l*(curlU^2)) )*Gc;
+
+// Dimensionless dynamic term
+real zeta = (rho*L0^2)/(Kn*tau^2);
+
+// Dimensionless length scale parameter
+real beta = (l/L0)^2;
+
+// prescribed displacement
+real alpha=0;
+
+// Paraview variables
+int[int] Order = [1,1,1];
+string DataName;
+
+// Time
+real time;
+real Totaltime;
+real tsolve;
+real tsolveud;
