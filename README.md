@@ -43,8 +43,9 @@ To run the code, you need:
 
 1. Choose the example you want to run from the `Examples/` directory (e.g. `Examples/4.2/`)
 2. Copy the `.edp` files from that folder into the `CODE/` directory, replacing existing files
-3. Open a terminal and navigate to the `CODE/` folder
-4. Run the main script:
+3. Create the corresponding folders for data export and VTU files
+4. Open a terminal and navigate to the `CODE/` folder
+5. Run the main script:
 
 ```bash
 FreeFem++ sPF.edp
