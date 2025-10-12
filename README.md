@@ -14,7 +14,7 @@ It accompanies the paper:
 ## 📁 Repository Structure
 
 Each example folder contains a working subset of scripts to reproduce the corresponding numerical benchmark described in the paper.
-
+```
 Phase-field-for-brittle-fracture/
 ├── CODE/ # Main simulation scripts (modular .edp files)
 ├── Examples/ # Example problems from the paper (Section 4.x)
@@ -25,6 +25,7 @@ Phase-field-for-brittle-fracture/
 │ ├── 4.5/Dynamic crack branching
 ├── LICENSE # GNU GPL v3.0 license
 └── README.md # Project documentation (this file)
+```
 
 ## ⚙️ Requirements
 
