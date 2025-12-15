@@ -113,7 +113,7 @@ for (int i = 0; i < Nsteps; i++){ // from the second step load
 		matrix K11=Phasefield0(Xh,Xh);			
 		real[int] xk = [u1[],d[]];				 
 		matrix Kt = [[K00,0], [0,K11]];	
-		set(Kt,solver="SPARSESOLVER",tgv=1e30);		
+		set(Kt,solver="SPARSESOLVER",tgv=1e30);	// MUMPS can be also used here	
 	    real[int] Xaux = Kt*xk;	
 	    real[int] R = F - Xaux;	    		
 		real[int] dxkp1 = Kt^-1 * R;
@@ -153,9 +153,9 @@ for (int i = 0; i < Nsteps; i++){ // from the second step load
 	e22 = eps22 - En;	
 	e12 = eps12;
 
-	sigma11 = lambda*( eps11 + eps22 ) + 2*mu*eps11 ;
-	sigma22 = lambda*( eps11 + eps22 ) + 2*mu*eps22 ;		
-	sigma12 = 2*mu*eps12 ;
+	sigma11 = (1-d)^2 * ( lambda*( eps11 + eps22 ) + 2*mu*eps11 );
+	sigma22 = (1-d)^2 * ( lambda*( eps11 + eps22 ) + 2*mu*eps22 );		
+	sigma12 = (1-d)^2 * ( 2*mu*eps12 );
 	
 	// =============================================================
 	// Strain energy and mixed criterion ===========================		

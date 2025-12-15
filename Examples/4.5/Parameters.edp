@@ -29,7 +29,7 @@ real lmax = 0.05;
 int mNv = 100000; 
 
 // error of the adaptmesh process
-real error=0.005;
+real error=0.001;
 
 // Isometric mesh 0 (N), and 1 (Y)
 int tm=0; 
