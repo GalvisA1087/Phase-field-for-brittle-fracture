@@ -6,8 +6,8 @@ This repository contains a fully documented implementation of a variational **ph
 
 It accompanies the paper:
 
-> _Phase-field modelling of quasi-static and dynamic brittle fracture: a FreeFEM++ implementation_  
-> *(Preprint or journal reference link here when available)*
+> _Phase-field modelling of quasi-static and dynamic brittle fracture: A FreeFEM++ implementation_  
+> *https://doi.org/10.1016/j.engfracmech.2026.111846*
 
 ---
 
