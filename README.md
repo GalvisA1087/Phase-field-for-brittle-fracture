@@ -67,7 +67,3 @@ If you use this code, please cite:
   doi     = {10.1016/j.engfracmech.2026.111846}
 }
 ```
-
----
-
-## 📄 License
