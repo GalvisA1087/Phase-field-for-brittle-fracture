@@ -50,3 +50,24 @@ To run the code, you need:
 ```bash
 FreeFem++ sPF.edp
 
+---
+
+## 📖 Citation
+
+If you use this code, please cite:
+
+```bibtex
+@article{Galvis2026,
+  author  = {Galvis, Andres F.},
+  title   = {Phase-field modelling of quasi-static and dynamic brittle fracture: A FreeFEM++ implementation},
+  journal = {Engineering Fracture Mechanics},
+  volume  = {333},
+  pages   = {111846},
+  year    = {2026},
+  doi     = {10.1016/j.engfracmech.2026.111846}
+}
+```
+
+---
+
+## 📄 License
